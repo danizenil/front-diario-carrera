@@ -1,0 +1,35 @@
+<div class="card border-primary mb-3" >
+    <div class="card-header">Diario de carrera</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Sesiones</h5>
+      <div class="my-2 text-left">
+        <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/diario/formulario']"> Crear Sesion</button>
+      </div>
+      <table class="table table-bordered table-striped">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>FECHA</th>
+                  <th>DESCRIPCION</th>
+                  <th>TIPO</th>
+                  <th>KILOMETRAJE TOTAL</th>
+                  <th>ESTADO</th>
+                  <th>EDITAR</th>
+                  <th>Borrar</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sesion of sesiones">
+              <td>{{sesion.id}}</td>
+              <td>{{sesion.fecha}}</td>
+              <td>{{sesion.descripcion}}</td>
+              <td>{{sesion.tipo}}</td>
+              <td>{{sesion.kilometrajeTotal}}</td>
+              <td>{{sesion.estado}}</td>
+              <td><button type="button" name="editar" [routerLink]="['/diario/formulario',sesion.id]" class="btn btn-primary btn-sm">editar</button></td>
+              <td><button type="button" name="eliminar" (click)="delete(sesion)"class="btn btn-danger btn-sm">borrar</button></td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+</div>

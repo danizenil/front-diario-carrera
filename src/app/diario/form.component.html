@@ -1,0 +1,34 @@
+<div class="card bg-dark text-white">
+    <div class="card-header">{{title}}</div>
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+              <label for="fecha" class="col-sm-2" >Fecha</label>
+              <input type="text" class="form-control col-sm-6" id="fecha" name="fecha" placeholder="Fecha" [(ngModel)]="sesion.fecha">
+            </div>
+            <div class="form-group row">
+              <label for="descripcion" class="col-sm-2">Descripción</label>
+              <input type="text" class="form-control col-sm-6" id="descripcion" name="descripcion" placeholder="Descripción" [(ngModel)]="sesion.descripcion">
+            </div>
+            <div class="form-group row">
+                <label for="tipo" class="col-sm-2">Tipo</label>
+                <input type="text" class="form-control col-sm-6" id="tipo" name="tipo" placeholder="Tipo" [(ngModel)]="sesion.tipo">
+            </div>
+            <div class="form-group row">
+                <label for="kilometrajeTotal" class="col-sm-2">Kilometraje Total</label>
+                <input type="text" class="form-control col-sm-6" id="kilometrajeTotal" name="kilometrajeTotal" placeholder="Kilometraje total" [(ngModel)]="sesion.kilometrajeTotal">
+            </div>
+            <div class="form-group row" >
+                <label for="Estado" class="col-sm-2">Estado</label>
+                <input type="text" class="form-control col-sm-6" id="estado" name="estado" placeholder="Estado" [(ngModel)]="sesion.estado">
+            </div>
+            
+            <button type="submit" class="btn btn-primary" (click)="save()" *ngIf="!sesion.id else elseBlock" >Crear</button>
+            <ng-template #elseBlock>
+            <button type="submit" class="btn btn-primary" (click)="update()"  >Actualizar</button>
+            </ng-template>
+        
+        </form>
+
+    </div>
+</div>
